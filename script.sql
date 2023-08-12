@@ -58,3 +58,16 @@ CREATE TABLE Veiculo (
         ON UPDATE CASCADE,
 	CONSTRAINT unicidade_placa_veiculo UNIQUE (placa)
 );
+
+-- Criação da tabela OrdemServico
+CREATE TABLE OrdemServico (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    data_de_abertura DATETIME,
+    data_de_conclusao DATETIME,
+    total DECIMAL(8,2),
+    cliente_id INT NOT NULL,
+    CONSTRAINT fk_ordemservico_cliente FOREIGN KEY (cliente_id) REFERENCES Cliente(id)
+		ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
