@@ -66,9 +66,13 @@ CREATE TABLE OrdemServico (
     data_de_abertura DATETIME DEFAULT NOW(),
     data_de_conclusao DATETIME,
     total DECIMAL(8,2),
-    cliente_id INT NOT NULL,
+    cliente_id INT,
+    veiculo_id INT,
     CONSTRAINT fk_ordemservico_cliente FOREIGN KEY (cliente_id) REFERENCES Cliente(id)
-		ON DELETE CASCADE
+		ON DELETE SET NULL
+        ON UPDATE CASCADE,
+    CONSTRAINT fk_ordemservico_veiculo FOREIGN KEY (veiculo_id) REFERENCES Veiculo(id)
+		ON DELETE SET NULL
         ON UPDATE CASCADE
 );
 
