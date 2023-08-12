@@ -79,3 +79,16 @@ CREATE TABLE Servico (
     preco DECIMAL(8,2) NOT NULL
 );
 
+-- Criação da tabela ItemServico
+CREATE TABLE ItemServico (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    quantidade INT NOT NULL,
+    servico_id INT NOT NULL,
+    ordemservico_id INT NOT NULL,
+    CONSTRAINT fk_itemservico_servico FOREIGN KEY (servico_id) REFERENCES Servico(id)
+		ON DELETE CASCADE
+        ON UPDATE CASCADE,
+	CONSTRAINT fk_itemservico_ordemservico FOREIGN KEY (ordemservico_id) REFERENCES OrdemServico(id)
+		ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
