@@ -1,6 +1,7 @@
 -- Criação do banco de dados Oficina
 CREATE DATABASE Oficina;
 USE Oficina;
+-- DROP DATABASE Oficina;
 
 -- Criação da tabela Identificacao
 CREATE TABLE Identificacao (
@@ -84,7 +85,7 @@ CREATE TABLE ItemServico (
 	id INT PRIMARY KEY AUTO_INCREMENT,
     quantidade INT NOT NULL,
     servico_id INT NOT NULL,
-    ordemservico_id INT NOT NULL,
+    ordemservico_id INT,
     CONSTRAINT fk_itemservico_servico FOREIGN KEY (servico_id) REFERENCES Servico(id)
 		ON DELETE CASCADE
         ON UPDATE CASCADE,
