@@ -68,6 +68,14 @@ CREATE TABLE OrdemServico (
     cliente_id INT NOT NULL,
     CONSTRAINT fk_ordemservico_cliente FOREIGN KEY (cliente_id) REFERENCES Cliente(id)
 		ON DELETE CASCADE
-        ON UPDATE CASCADE,
+        ON UPDATE CASCADE
+);
+
+-- Criação da tabela Servico
+CREATE TABLE Servico (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(30) NOT NULL,
+    descricao TEXT,
+    preco DECIMAL(8,2) NOT NULL
 );
 
