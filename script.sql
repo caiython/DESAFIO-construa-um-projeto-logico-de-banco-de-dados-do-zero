@@ -44,3 +44,17 @@ CREATE TABLE Cliente (
 		ON DELETE CASCADE
         ON UPDATE CASCADE
 );
+
+-- Criação da tabela Veiculo
+CREATE TABLE Veiculo (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    placa CHAR(7) NOT NULL,
+    modelo VARCHAR(30),
+    ano CHAR(4),
+    cor VARCHAR(20),
+    cliente_id INT NOT NULL,
+    CONSTRAINT fk_veiculo_cliente FOREIGN KEY (cliente_id) REFERENCES Cliente(id)
+		ON DELETE CASCADE
+        ON UPDATE CASCADE,
+	CONSTRAINT unicidade_placa_veiculo UNIQUE (placa)
+);
